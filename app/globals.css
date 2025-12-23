@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --avante-sky: #7AB4E8;
+  --avante-navy: #1A3A8C;
+  --avante-blue: #2B6FC2;
+  --avante-slate: #4A5568;
+  --avante-light: #F7FAFC;
+  --avante-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--avante-slate);
+  background: var(--avante-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--avante-navy);
+  line-height: 1.2;
+}
+
+::selection {
+  background: var(--avante-sky);
+  color: var(--avante-navy);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--avante-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--avante-sky);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--avante-blue);
+}
+
+/* Editorial label style */
+.editorial-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--avante-blue);
+}
+
+/* Journey connecting line */
+.journey-line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--avante-sky) 0%, var(--avante-blue) 100%);
+  transform: translateX(-50%);
+}
+
+/* Form focus styles */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--avante-blue);
+  box-shadow: 0 0 0 3px rgba(43, 111, 194, 0.15);
+}
+
+/* Button hover lift effect */
+.btn-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(26, 58, 140, 0.25);
+}
