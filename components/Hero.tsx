@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Hero() {
   const scrollToForm = () => {
@@ -59,33 +58,6 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <Image
-            src="/logo.png"
-            alt="Avante Leadership Consulting"
-            width={180}
-            height={180}
-            className="mx-auto"
-            priority
-          />
-        </motion.div>
-
-        {/* Editorial label */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="editorial-label mb-6"
-        >
-          Leadership Consulting
-        </motion.p>
-
         {/* Main headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

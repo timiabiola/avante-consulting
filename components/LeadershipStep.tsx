@@ -10,6 +10,7 @@ interface LeadershipStepProps {
   principle: string
   color: string
   delay: number
+  isFirst?: boolean
 }
 
 export default function LeadershipStep({
@@ -19,40 +20,21 @@ export default function LeadershipStep({
   principle,
   color,
   delay,
+  isFirst = false,
 }: LeadershipStepProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, x: -20 }}
+      initial={{ opacity: 0, y: -40, x: 20 }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
       className="relative"
       style={{
-        marginLeft: `${(level - 1) * 12}%`,
-        marginTop: level === 1 ? '0' : '-1rem',
+        marginLeft: `${(level - 1) * 15}%`,
+        marginTop: level === 5 ? '0' : '-0.2rem',
       }}
     >
-      {/* Connecting arrow to next step */}
-      {level < 5 && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: delay + 0.3 }}
-          className="absolute -bottom-8 right-1/4 text-avante-sky/60 hidden md:block"
-        >
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path
-              d="M8 32 L32 8 M24 8 L32 8 L32 16"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </motion.div>
-      )}
-
+      
       {/* Step Card */}
       <motion.div
         whileHover={{ y: -8, scale: 1.02 }}

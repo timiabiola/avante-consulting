@@ -102,20 +102,21 @@ export default function AvanteAdvantage() {
 
         {/* Staircase Container */}
         <div className="relative">
-          {/* Desktop: Diagonal ascending layout */}
-          <div className="hidden md:block space-y-6">
-            {leadershipLevels.map((level, index) => (
+          {/* Desktop: Diagonal ascending layout - Pinnacle at top */}
+          <div className="hidden md:block space-y-0">
+            {leadershipLevels.slice().reverse().map((level, index) => (
               <LeadershipStep
                 key={level.level}
                 {...level}
                 delay={index * 0.15}
+                isFirst={level.level === 5}
               />
             ))}
           </div>
 
-          {/* Mobile: Vertical stack */}
+          {/* Mobile: Vertical stack - Pinnacle at top, climb from bottom */}
           <div className="md:hidden space-y-10">
-            {leadershipLevels.map((level, index) => (
+            {leadershipLevels.slice().reverse().map((level, index) => (
               <motion.div
                 key={level.level}
                 initial={{ opacity: 0, x: -30 }}
@@ -161,12 +162,12 @@ export default function AvanteAdvantage() {
                     </p>
                   </div>
 
-                  {/* Arrow to next (except last) */}
-                  {index < leadershipLevels.length - 1 && (
-                    <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-avante-sky/50" aria-hidden="true">
+                  {/* Arrow pointing UP to next level (except Pinnacle) */}
+                  {level.level < 5 && (
+                    <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-avante-sky/50" aria-hidden="true">
                       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                         <path
-                          d="M12 4 L12 20 M6 14 L12 20 L18 14"
+                          d="M12 20 L12 4 M6 10 L12 4 L18 10"
                           stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
