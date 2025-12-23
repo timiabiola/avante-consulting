@@ -11,6 +11,12 @@
   --avante-slate: #4A5568;
   --avante-light: #F7FAFC;
   --avante-white: #FFFFFF;
+
+  /* Testimonials section colors */
+  --testimonial-bg: #E8F5E9;
+  --testimonial-card: #FFFFFF;
+  --testimonial-quote: #4DB6AC;
+  --testimonial-stars: #FFB300;
 }
 
 * {
@@ -21,6 +27,21 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -95,4 +116,46 @@ input:focus, select:focus, textarea:focus {
 .btn-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px -5px rgba(26, 58, 140, 0.25);
+}
+
+.btn-lift:active {
+  transform: scale(0.98);
+}
+
+/* Mobile touch optimization */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+a[role="button"] {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Improve touch feedback on mobile */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile devices */
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  /* Larger minimum touch targets on mobile */
+  .btn-lift {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Optimize font rendering for mobile */
+@media screen and (max-width: 640px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 }
